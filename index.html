@@ -1,5 +1,3 @@
-<h2>Scannez pour accéder au jeu</h2>
-<img src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fsstgh.github.io%2FCoPTesting8%2F&chs=200x200" alt="QR Code vers
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,16 +20,22 @@
       margin-top: 20px;
       font-weight: bold;
     }
+    img.qr {
+      margin-top: 30px;
+      width: 200px;
+      height: 200px;
+    }
   </style>
 </head>
 <body>
-  <h1>CoP Testing #8</h1>
+  <h1>Jeu de validation</h1>
   <p>Entrez votre mot de passe :</p>
   <input type="text" id="passwordInput" placeholder="Mot de passe">
   <button onclick="validatePassword()">Valider</button>
   <div id="result"></div>
 
-  <script>
+  <h2>📱 Scannez pour accéder au jeu</h2>
+  <img class="qr" src="https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fsstgh.github.io%2FCoPTestingscript>
     const correctPassword = "TEST2025"; // À personnaliser
 
     function validatePassword() {
