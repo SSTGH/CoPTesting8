@@ -29,7 +29,7 @@
   </style>
 </head>
 <body>
-  <h1>Jeu de validation</h1>
+  <h1>CoP Testing #8</h1>
   <p>Entrez votre mot de passe :</p>
   <input type="text" id="passwordInput" placeholder="Mot de passe">
   <button onclick="validatePassword()">Valider</button>
@@ -43,7 +43,13 @@
 
   <script>
     const correctPassword = "TEST2025"; // À personnaliser
-    let attemptCount = 0;
+    const warningThreshold = 5;
+
+    let attemptCount = parseInt(localStorage.getItem("attemptCount")) || 0;
+
+    window.onload = () => {
+      document.getElementById("attempts").textContent = "Tentatives : " + attemptCount;
+    };
 
     function validatePassword() {
       const input = document.getElementById("passwordInput").value;
@@ -51,6 +57,7 @@
       const attempts = document.getElementById("attempts");
 
       attemptCount++;
+      localStorage.setItem("attemptCount", attemptCount);
       attempts.textContent = "Tentatives : " + attemptCount;
 
       if (input === correctPassword) {
@@ -59,6 +66,11 @@
       } else {
         result.textContent = "❌ Mot de passe incorrect. Réessayez.";
         result.style.color = "red";
+
+        if (attemptCount >= warningThreshold) {
+          result.textContent += " ⚠️ Tu commences à t'acharner... Besoin d'un indice ?";
+          result.style.color = "orange";
+        }
       }
     }
   </script>
