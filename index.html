@@ -15,7 +15,7 @@
       font-size: 16px;
       margin: 10px;
     }
-    #result {
+    #result, #attempts {
       margin-top: 20px;
       font-weight: bold;
     }
@@ -29,22 +29,29 @@
   </style>
 </head>
 <body>
-  <h1>CoP Testing #8</h1>
+  <h1>Jeu de validation</h1>
   <p>Entrez votre mot de passe :</p>
   <input type="text" id="passwordInput" placeholder="Mot de passe">
   <button onclick="validatePassword()">Valider</button>
   <div id="result"></div>
+  <div id="attempts">Tentatives : 0</div>
 
   <div class="qr-container">
     <h2>📱 Scannez pour accéder au jeu</h2>
-    <img src="qr_code_CoPTesting8.png" alt="QR Code vers le jeu" width="200" height="200"></div>
+    <img src="qr_code_CoPTesting8.png" alt="QR Code vers le jeu">
+  </div>
 
   <script>
-	const correctPassword = "TEST2025"; // À personnaliser
+    const correctPassword = "TEST2025"; // À personnaliser
+    let attemptCount = 0;
 
     function validatePassword() {
       const input = document.getElementById("passwordInput").value;
       const result = document.getElementById("result");
+      const attempts = document.getElementById("attempts");
+
+      attemptCount++;
+      attempts.textContent = "Tentatives : " + attemptCount;
 
       if (input === correctPassword) {
         result.textContent = "✅ Mot de passe correct ! Bravo 🎉";
