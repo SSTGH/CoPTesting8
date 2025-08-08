@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Validation de mot de passe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f0f8ff;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>CoP Testing #8</h1>
+  <p>Entrez votre mot de passe :</p>
+  <input type="text" id="passwordInput" placeholder="Mot de passe">
+  <button onclick="validatePassword()">Valider</button>
+  <div id="result"></div>
+
+  <script>
+    const correctPassword = "TEST2025"; // À personnaliser
+
+    function validatePassword() {
+      const input = document.getElementById("passwordInput").value;
+      const result = document.getElementById("result");
+
+      if (input === correctPassword) {
+        result.textContent = "✅ Mot de passe correct ! Bravo 🎉";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ Mot de passe incorrect. Réessayez.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
